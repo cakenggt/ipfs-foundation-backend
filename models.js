@@ -10,12 +10,14 @@ module.exports = function(sequelize, DataTypes) {
 	var File = sequelize.define('file', {
 		name: {
 			type: DataTypes.STRING,
-			allowNull: false
+			allowNull: false,
+			unique: true
 		},
 		description: DataTypes.TEXT,
 		hash: {
 			type: DataTypes.STRING,
-			allowNull: false
+			allowNull: false,
+			unique: true
 		}
 	});
 
