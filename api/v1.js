@@ -1,5 +1,6 @@
 'use strict';
 const prefix = '/api/v1/';
+var isIPFS = require('is-ipfs');
 
 module.exports = function(options){
 
@@ -35,7 +36,7 @@ module.exports = function(options){
 
   app.post(prefix+'file', function (req, res) {
     var body = req.body;
-    if (body) {
+    if (body && isIPFS.multihash(body.hash)) {
       models.File.create(body);
     }
     res.end();
